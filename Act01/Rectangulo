@@ -1,0 +1,18 @@
+public class Rectangulo {
+	private Coordenada esq1;
+	private Coordenada esq2;
+	
+	public Rectangulo(Coordenada c1, Coordenada c2) {
+		this.esq1 = c1;
+		this.esq2 = c2;
+	}
+	
+	public void setEsquina1(Coordenada c) { this.esq1 = c; }
+	public Coordenada getEsquina1() { return esq1; }
+	public void setEsquina2(Coordenada c) { this.esq2 = c; }
+	public Coordenada getEsquina2() { return esq2; }
+	
+	public String toString() {
+		return "Esquina 1 =	(" + esq1.getX() + "," + esq1.getY() + ") - Esquina 2 = (" + esq2.getX() + "," + esq2.getY() + ")";
+	}	
+}
