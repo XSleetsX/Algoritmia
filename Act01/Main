@@ -1,16 +1,20 @@
 public class Main {
 	public static void main(String[] args) {
-		Rectangulo r1 = new Rectangulo(new Coordenada(1.5,0.3), new Coordenada(7.6,2.2));
-		Rectangulo r2 = new Rectangulo(new Coordenada(4.0,4.2), new Coordenada(9.4,-2.5));
+		Rectangulo a = new Rectangulo(new Coordenada(20.5,-1.1), new Coordenada(33.3,3.6));
+		Rectangulo b = new Rectangulo(new Coordenada(10.3,-5.2), new Coordenada(20.5,8.6));
 		
-		if (Verificador.esSobrePos(r1, r2)) {
-			System.out.println("Los rectángulos se sobreponen");
+		if (Verificador.esSobrePos(a, b)) {
+			System.out.println("Los rectángulos se sobreponen.");
 		}
-		if (Verificador.esJunto(r1, r2)) {
+		if (Verificador.esJunto(a, b)) {
 			System.out.println("Los rectángulos están juntos.");
 		}
-		if (Verificador.esDisjunto(r1, r2)) {
+		if (Verificador.esDisjunto(a, b)) {
 			System.out.println("Los rectángulos están separados.");
 		}
+	}
+	
+	public static Rectangulo rectanguloSobre(Rectangulo r1, Rectangulo r2) {
+		return r1;
 	}
 }
