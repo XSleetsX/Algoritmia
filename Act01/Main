@@ -1,7 +1,27 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        Rectangulo a = new Rectangulo(new Coordenada(1.5, 0.3), new Coordenada(7.6, 2.2));
-        Rectangulo b = new Rectangulo(new Coordenada(4.0, 4.2), new Coordenada(9.4, -2.5));
+        Scanner scan = new Scanner(System.in);
+        double x1, y1, x2, y2;
+
+        System.out.println("Ingrese la cantidad de rectángulos que ingresará: ");
+        int n = scan.nextInt();
+        ContainerRect contrec = new ContainerRect(n);
+
+        for(int i = 0; i < n; i++) {
+            System.out.println("\n" + (i + 1) + "° rectángulo:");
+            System.out.println("Ingrese la x de una esquina del 1er rectángulo: ");
+            x1 = scan.nextDouble();
+            System.out.println("Ingrese la y de una esquina del 1er rectángulo: ");
+            y1 = scan.nextDouble();
+
+            System.out.println("Ingrese la x de la esquina opuesta del rectángulo: ");
+            x2 = scan.nextDouble();
+            System.out.println("Ingrese la y de la esquina opuesta del rectángulo: ");
+            y2 = scan.nextDouble();
+            Rectangulo r = new Rectangulo(new Coordenada(x1, y1), new Coordenada(x2, y2));
+        }
 
         if (Verificador.esSobrePos(a, b)) {
             System.out.println("Los rectángulos se sobreponen.");
