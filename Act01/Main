@@ -20,9 +20,20 @@ public class Main {
             x2 = scan.nextDouble();
             System.out.println("Ingrese la y de la esquina opuesta del rectángulo: ");
             y2 = scan.nextDouble();
-            Rectangulo r = new Rectangulo(new Coordenada(x1, y1), new Coordenada(x2, y2));
+            
+            contrec.addRectangulo(new Rectangulo(new Coordenada(x1, y1), new Coordenada(x2, y2)));
         }
 
+        System.out.println("Rectángulo - Coordenadas - Distancia - Área\n" + contrec);
+        
+        System.out.println("\nSeleccione los rectangulos que desea comparar: ");
+        System.out.println("1° rectángulo: ");
+        int num1 = scan.nextInt();
+        Rectangulo a = contrec.searchRectangulo(num1);
+        System.out.println("2° rectángulo: ");
+        int num2 = scan.nextInt();
+        Rectangulo b = contrec.searchRectangulo(num2);
+        
         if (Verificador.esSobrePos(a, b)) {
             System.out.println("Los rectángulos se sobreponen.");
             Rectangulo r = rectanguloSobre(a, b);
