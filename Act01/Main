@@ -1,20 +1,46 @@
 public class Main {
-	public static void main(String[] args) {
-		Rectangulo a = new Rectangulo(new Coordenada(1.5,0.3), new Coordenada(7.6,2.2));
-		Rectangulo b = new Rectangulo(new Coordenada(4.0,4.2), new Coordenada(9.4,-2.5));
-		
-		if (Verificador.esSobrePos(a, b)) {
-			System.out.println("Los rectángulos se sobreponen.");
-		}
-		if (Verificador.esJunto(a, b)) {
-			System.out.println("Los rectángulos están juntos.");
-		}
-		if (Verificador.esDisjunto(a, b)) {
-			System.out.println("Los rectángulos están separados.");
-		}
-	}
-	
-	public static Rectangulo rectanguloSobre(Rectangulo r1, Rectangulo r2) {
-		return r1;
-	}
+    public static void main(String[] args) {
+        Rectangulo a = new Rectangulo(new Coordenada(1.5, 0.3), new Coordenada(7.6, 2.2));
+        Rectangulo b = new Rectangulo(new Coordenada(4.0, 4.2), new Coordenada(9.4, -2.5));
+
+        if (Verificador.esSobrePos(a, b)) {
+            System.out.println("Los rectángulos se sobreponen.");
+            Rectangulo r = rectanguloSobre(a, b);
+            System.out.println("El área de superposición es: " + r.calcularArea());
+        }
+        if (Verificador.esJunto(a, b)) {
+            System.out.println("Los rectángulos están juntos.");
+        }
+        if (Verificador.esDisjunto(a, b)) {
+            System.out.println("Los rectángulos están separados.");
+        }
+    }
+
+    public static Rectangulo rectanguloSobre(Rectangulo a, Rectangulo b) {
+        double coordx[] = { a.getEsquina1().getX(), a.getEsquina2().getX(), b.getEsquina1().getX(),
+                b.getEsquina2().getX() };
+        for (int i = 0; i < coordx.length - 1; i++) {
+            for (int j = 0; j < (coordx.length - 1 - i); j++) {
+                if (coordx[j] > coordx[j + 1]) {
+                    double temp = coordx[j];
+                    coordx[j] = coordx[j + 1];
+                    coordx[j + 1] = temp;
+                }
+            }
+        }
+
+        double coordy[] = { a.getEsquina1().getY(), a.getEsquina2().getY(), b.getEsquina1().getY(),
+                b.getEsquina2().getY() };
+        for (int i = 0; i < coordy.length - 1; i++) {
+            for (int j = 0; j < (coordy.length - 1 - i); j++) {
+                if (coordy[j] > coordy[j + 1]) {
+                    double temp = coordy[j];
+                    coordy[j] = coordy[j + 1];
+                    coordy[j + 1] = temp;
+                }
+            }
+        }
+
+        return new Rectangulo(new Coordenada(coordx[1], coordy[1]), new Coordenada(coordx[2], coordy[2]));
+    }
 }
