@@ -1,0 +1,36 @@
+public class ContainerRect {
+	private Rectangulo rectangulos[];
+	private double distancias[];
+	private double areas[];
+	private int n;
+	private static int numRec = 0;
+	
+	public ContainerRect(int n) {
+		this.n = n;
+		this.rectangulos = new Rectangulo[n];
+		this.distancias = new double[n];
+		this.areas = new double[n];
+	}
+	
+	public void addRectangulo(Rectangulo r) {
+		if (numRec == n) {
+			System.out.println("Ya no se pueden agregar más rectángulos.");
+		} else {
+			rectangulos[numRec] = r;
+			distancias[numRec] = r.getEsquina1().distancia(r.getEsquina2());
+			areas[numRec] = r.calcularArea();
+			numRec += 1;
+		}
+	}
+	public Rectangulo searchRectangulo(int n) {
+		return rectangulos[n - 1];
+	}
+	
+	public String toString() {
+		String cad = "";
+		for (int i = 0; i < numRec; i++) {
+			cad += (i + 1) + " - " + rectangulos[i] + " - " + distancias[i] + " - " + areas[i] + "\n";
+		}
+		return cad;
+	}
+}
