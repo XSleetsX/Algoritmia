@@ -1,47 +1,49 @@
 public class Verificador {
-	public static boolean esSobrePos(Rectangulo a, Rectangulo b) {
-		double ax1 = a.getEsquina1().getX();
-		double ay1 = a.getEsquina1().getY();
-		double ax2 = a.getEsquina2().getX();
-		double ay2 = a.getEsquina2().getY();
-		double bx1 = b.getEsquina1().getX();
-		double by1 = b.getEsquina1().getY();
-		double bx2 = b.getEsquina2().getX();
-		double by2 = b.getEsquina2().getY();
-		
-		if (Math.min(ax1, ax2) >= Math.max(bx1, bx2) || Math.min(bx1, bx2) >= Math.max(ax1, ax2)){
-			return false;
-		}
-		if (Math.min(ay1, ay2) >= Math.max(by1, by2) || Math.min(by1, by2) >= Math.max(ay1, ay2)) {
-			return false;
-		}
-		
-		return true;
-	}
-	public static boolean esJunto(Rectangulo a, Rectangulo b) {
-		double ax1 = a.getEsquina1().getX();
-		double ay1 = a.getEsquina1().getY();
-		double ax2 = a.getEsquina2().getX();
-		double ay2 = a.getEsquina2().getY();
-		double bx1 = b.getEsquina1().getX();
-		double by1 = b.getEsquina1().getY();
-		double bx2 = b.getEsquina2().getX();
-		double by2 = b.getEsquina2().getY();
-		
-		if (ax1 == bx2 || bx1 == ax2) {
-			return true;
-		}
-		if (ay1 == by2 || by1 == ay2) {
-			return true;
-		}
-		
-		return false;
-	}
-	public static boolean esDisjunto(Rectangulo r1, Rectangulo r2) {
-		if (esSobrePos(r1, r2) == false && esJunto(r1, r2) == false) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+    public static boolean esSobrePos(Rectangulo a, Rectangulo b) {
+        double ax1 = a.getEsquina1().getX();
+        double ay1 = a.getEsquina1().getY();
+        double ax2 = a.getEsquina2().getX();
+        double ay2 = a.getEsquina2().getY();
+        double bx1 = b.getEsquina1().getX();
+        double by1 = b.getEsquina1().getY();
+        double bx2 = b.getEsquina2().getX();
+        double by2 = b.getEsquina2().getY();
+
+        if (Math.min(ax1, ax2) >= Math.max(bx1, bx2) || Math.min(bx1, bx2) >= Math.max(ax1, ax2)) {
+            return false;
+        }
+        if (Math.min(ay1, ay2) >= Math.max(by1, by2) || Math.min(by1, by2) >= Math.max(ay1, ay2)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public static boolean esJunto(Rectangulo a, Rectangulo b) {
+        double ax1 = a.getEsquina1().getX();
+        double ay1 = a.getEsquina1().getY();
+        double ax2 = a.getEsquina2().getX();
+        double ay2 = a.getEsquina2().getY();
+        double bx1 = b.getEsquina1().getX();
+        double by1 = b.getEsquina1().getY();
+        double bx2 = b.getEsquina2().getX();
+        double by2 = b.getEsquina2().getY();
+
+        if (ax1 == bx2 || bx1 == ax2) {
+            return true;
+        }
+        if (ay1 == by2 || by1 == ay2) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static boolean esDisjunto(Rectangulo r1, Rectangulo r2) {
+        if (esSobrePos(r1, r2) == false && esJunto(r1, r2) == false) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
