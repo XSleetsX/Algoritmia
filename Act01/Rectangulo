@@ -30,7 +30,6 @@ public class Rectangulo {
     }
 
     public String toString() {
-        return "Esquina 1 =	(" + esq1.getX() + "," + esq1.getY() + ") - Esquina 2 = (" + esq2.getX() + "," + esq2.getY()
-                + ")";
+        return "(" + esq1.toString() + ", " + esq2.toString() + ")";
     }
 }
