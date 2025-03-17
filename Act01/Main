@@ -74,4 +74,33 @@ public class Main {
 
         return new Rectangulo(new Coordenada(coordx[1], coordy[1]), new Coordenada(coordx[2], coordy[2]));
     }
+
+    public class PlanoCartesiano extends JPanel {
+        double x1, y2, ancho1, altura1;
+        
+        public void PlanoCartesiano(double x, double y, double ancho, double altura) {
+        	this.x = x;
+        	this.y = y;
+        	this.ancho = ancho;
+        	this.altura = altura;
+        }
+        
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            
+            g.setColor(Color.BLUE);
+            g.fillRect(x, y, ancho, altura);
+        }
+
+        public void crearPanel(Rectangulo r1, Rectangulo r2) {
+            JFrame frame = new JFrame("Rectángulos");
+            PlanoCartesiano panel = new PlanoCartesiano();
+            
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setSize(400, 300);
+            frame.add(panel);
+            frame.setVisible(true);
+        }
+    }
 }
