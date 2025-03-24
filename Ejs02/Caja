@@ -1,0 +1,40 @@
+import java.util.ArrayList;
+
+public class Caja<T extends Comparable<T>> {
+	private ArrayList<T> dulces = new ArrayList<T>();
+	private int tope;
+	private String color;
+	
+	public Caja(int tope, String color) {
+		this.tope = tope;
+		this.color = color;
+	}
+	
+	public void setColor(String color) { this.color = color; }
+	public String getColor() { return color; }
+	
+	public void add(T dulce) {
+		if (dulces.size() >= tope) {
+			dulces.add(dulce);
+		} else {
+			throw new RuntimeException("No hay espacio.");
+		}
+	}
+	
+	public boolean contiene(T elemento) {
+		for (T dulce : dulces) {
+			if (elemento.compareTo(dulce) == 0) { 
+				return true; 
+			}
+		}
+		return false;
+	}
+	
+	public String toString() {
+		String caja = "   " + color + "   ";
+		for (int i = 0; i < dulces.size(); i ++) {
+			caja += (i + 1) + dulces.get(i).toString();
+		}
+		return caja;
+	}
+}
