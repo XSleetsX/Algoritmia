@@ -14,17 +14,26 @@ public class Caja<T extends Comparable<T>> {
 	public String getColor() { return color; }
 	
 	public void add(T dulce) {
-		if (dulces.size() >= tope) {
+		if (dulces.size() < tope) {
 			dulces.add(dulce);
 		} else {
 			throw new RuntimeException("No hay espacio.");
 		}
 	}
 	
-	public boolean contiene(T elemento) {
+	public boolean search(T elemento) {
 		for (T dulce : dulces) {
 			if (elemento.compareTo(dulce) == 0) { 
 				return true; 
+			}
+		}
+		return false;
+	}
+	public boolean delete(T elemento) {
+		for (T dulce : dulces) {
+			if (elemento.compareTo(dulce) == 0) { 
+				dulces.remove(dulce);
+				return true;
 			}
 		}
 		return false;
