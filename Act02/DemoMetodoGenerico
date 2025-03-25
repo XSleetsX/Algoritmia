@@ -17,16 +17,28 @@ public class DemoMetodoGenerico {
 	}
 	
 	public static void main(String[] args) {
-		Integer nums[]={1,2,3,4,5};
-		Integer nums2[]={1,2,3,4,5};
-		Integer nums3[]={1,2,7,4,5};
-		Integer nums4[]={1,2,7,4,5,6};
-		if (igualArrays(nums,nums)) { System.out.println("nums es igual a nums"); }
-		if (igualArrays(nums,nums2)) { System.out.println("nums es igual a nums2"); }
-		if (igualArrays(nums,nums3)) { System.out.println("nums es igual a num3"); }
-		if (igualArrays(nums,nums4)) { System.out.println("nums es igual a nums4"); }
-		// Crea un array de double
-		Double dvals[]={1.1,2.2,3.3,4.4,5.5};
-		if(igualArrays(nums,dvals)) { System.out.println("nums es igual a dvals"); }
+		Bolsa<Chocolatina> bolsaCho = new Bolsa<Chocolatina>(3);
+		Chocolatina c = new Chocolatina("milka");
+		Chocolatina c1 = new Chocolatina("milka");
+		Chocolatina c2  =new Chocolatina("ferrero");
+		bolsaCho.add(c);
+		bolsaCho.add(c1);
+		bolsaCho.add(c2);
+		
+		for (Chocolatina chocolatina : bolsaCho) {
+			System.out.println(chocolatina.toString());
+		}
+		
+		Bolsa<Golosina> bolsaGol = new Bolsa<Golosina>(3);
+		Golosina g = new Golosina("caramelo",1.5);
+		Golosina g1 = new Golosina("bombom",2.5);
+		Golosina g2 = new Golosina("gomita",1.0);
+		bolsaGol.add(g);
+		bolsaGol.add(g1);
+		bolsaGol.add(g2);
+		
+		for (Golosina golosina : bolsaGol) {
+			System.out.println(golosina.toString());
+		}
 	}
 }
