@@ -1,8 +1,7 @@
 public class Chocolatina implements Comprable<Chocolatina> {
 	private String marca;
 	
-	public Chocolatina(String nombre, String marca) {
-		super(nombre);
+	public Chocolatina(String marca) {
 		this.marca = marca;
 	}
 	
