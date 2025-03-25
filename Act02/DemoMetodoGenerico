@@ -1,14 +1,19 @@
 public class DemoMetodoGenerico {
-	static <T extends Comparable<T>> boolean igualArrays(T[] x, T[] y) {
-		if (x.length != y.length) {
-			return false;
-		}
-		for (int i = 0; i < x.length; i++) {
-			if (!x[i].equals(y[i])) {
-				return false;
+	static <T extends Comparable<T>> boolean exist(Caja<T> caja, T elemento) {
+		Iterator<T> iterador = caja.iterator();
+		while (iterador.hasNext()) {
+			if (elemento.compareTo(iterador.next()) == 0) {
+				return true;
 			}
 		}
-		return true;
+		return false;
+	}
+
+	static <T extends Comparable<T>> void mostrarBolsa(Caja<T> caja) {
+		Iterator<T> iterador = caja.iterator();
+		while (iterador.hasNext()) {
+			iterador.next().toString();
+		}
 	}
 	
 	public static void main(String[] args) {
