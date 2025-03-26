@@ -1,19 +1,15 @@
-public class Chocolatina implements Comparable<Chocolatina>{
+public class Chocolatina extends Dulce {
 	private String marca;
 	
-	public Chocolatina(String marca) {
+	public Chocolatina(String nombre, String marca) {
+		super(nombre);
 		this.marca = marca;
 	}
 	
 	public void setMarca(String marca) { this.marca = marca; }
 	public String getMarca() { return marca; }
 	
-	@Override
-	public int compareTo(Chocolatina c) {
-		return marca.compareTo(c.getMarca());
-	}
-	
 	public String toString() {
-		return "Marca: " + marca;
+		return "Nombre: " + nombre + ", Marca: " + marca;
 	}
 }
