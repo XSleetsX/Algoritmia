@@ -40,9 +40,13 @@ public class Caja<T extends Comparable<T>> {
 	}
 	
 	public String toString() {
-		String caja = "   " + color + "   ";
+		String caja = "   " + color + "            ";
 		for (int i = 0; i < dulces.size(); i ++) {
-			caja += (i + 1) + dulces.get(i).toString();
+			if (i == dulces.size() - 1) {
+				caja += (i + 1) + ". " + dulces.get(i).toString() + "\n";
+			} else {
+				caja += (i + 1) + ". " + dulces.get(i).toString() + "\n                                 ";
+			}
 		}
 		return caja;
 	}
