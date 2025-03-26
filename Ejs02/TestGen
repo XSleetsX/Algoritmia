@@ -1,15 +1,39 @@
-public class TestGen {	
+public class TestGen {
 	public static void main(String[] args) {
-		Caja<Chocolatina> caja1 = new Caja<Chocolatina>(5, "rojo");
-		Caja<Golosina> caja2 = new Caja<Golosina>(3, "azul");
+		Cajoneria<Dulce> cajoneria = new Cajoneria<>(2);
+
+		Caja<Dulce> cajaRoja = new Caja<>(5, "Rojo");
+		cajoneria.add(cajaRoja);
 		
-		caja1.add(new Chocolatina("Kit Kat"));
-		caja1.add(new Chocolatina("Kinder"));
-		caja1.add(new Chocolatina("Huesitos"));
-		caja1.add(new Chocolatina("Lacasitos"));
-		caja1.add(new Chocolatina("Filipinos"));
+		cajaRoja.add(new Chocolatina("Snickers", "Mars Inc."));
+		cajaRoja.add(new Chocolatina("KitKat", "Nestlé"));
+		cajaRoja.add(new Chocolatina("Milka", "Mondelez International"));
+		cajaRoja.add(new Chocolatina("Ferrero Rocher", "Ferrero"));
+		cajaRoja.add(new Chocolatina("Toblerone", "Mondelez International"));
 		
+		Caja<Dulce> cajaAzul = new Caja<>(3, "Azul");
+		cajoneria.add(cajaAzul);
 		
+		cajaAzul.add(new Golosina("Gomitas", 100));
+		cajaAzul.add(new Golosina("Caramelos", 5));
+		cajaAzul.add(new Golosina("Chupetín", 12));
 		
+        System.out.println("Cajonería:");
+        System.out.println(cajoneria);
+
+        System.out.println("\nBuscando 'KitKat' en la cajonería...");
+        cajoneria.search(new Chocolatina("KitKat", "Nestlé"));
+
+        System.out.println("\nBuscando 'Chupetín' en la cajonería...");
+        cajoneria.search(new Golosina("Chupetín", 12));
+
+        System.out.println("\nEliminando 'Milka'...");
+        cajoneria.delete(new Chocolatina("Milka", "Mondelez International"));
+
+        System.out.println("\nEliminando 'Gomitas'...");
+        cajoneria.delete(new Golosina("Gomitas", 100));
+
+        System.out.println("\nCajonería:");
+        System.out.println(cajoneria);
 	}
 }
