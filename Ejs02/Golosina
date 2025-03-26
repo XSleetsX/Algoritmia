@@ -1,23 +1,14 @@
-public class Golosina implements Comparable<Golosina> {
-	private String nombre;
+public class Golosina extends Dulce {
 	private double peso;
 	
 	public Golosina(String nombre, double peso) {
-		this.nombre = nombre;
+		super(nombre);
 		this.peso = peso;
 	}
 	
-	public void setNombre(String nombre) { this.nombre = nombre; }
-	public String getNombre() { return nombre; }
-	
 	public void setPeso(double peso) { this.peso = peso; }
 	public double getPeso() { return peso; }
-	
-	@Override
-	public int compareTo(Golosina g) {
-		return nombre.compareTo(g.getNombre());
-	}
-	
+
 	public String toString() {
 		return "Nombre: " + nombre + ", Peso: " + peso;
 	}
