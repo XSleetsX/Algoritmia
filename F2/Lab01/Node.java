@@ -1,28 +1,20 @@
 package F2.Lab01;
 
 public class Node<T extends Comparable<T>> implements Comparable<T>{
-    private T dato;
+    private T elemento;
     private Node<T> next;
-
-    public Node(T dato) {
-        this.dato = dato;
+    //Constructor de la clase Node
+    public Node(T elemento) {
+        this.elemento = elemento;
         this.next = null;
     }
-
-    public void setDato(T dato) {
-        this.dato = dato;
-    }
-    public T getDato() {
-        return dato;
-    }
-    public void setNext(Node<T> next){
-        this.next = next;
-    }
-    public Node<T> getNext(){
-        return next;
-    }
-
-    public int compareTo(T otroDato){
-        return dato.compareTo(otroDato);
+    //Setters y Getters de elemento y next
+    public void setElemento(T elemento) { this.elemento = elemento; }
+    public T getElemento() { return elemento; }
+    public void setNext(Node<T> next){ this.next = next; }
+    public Node<T> getNext(){ return next; }
+    //Método comparteTo para comparar tipos genéricos
+    public int compareTo(T otroElemento){
+        return elemento.compareTo(otroElemento);
     }
 }
